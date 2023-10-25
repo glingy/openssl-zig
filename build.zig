@@ -1005,6 +1005,8 @@ fn libprovider(b: *std.Build, target: std.zig.CrossTarget, optimize: std.builtin
     lib.defineCMacro("OPENSSL_NO_KTLS", null);
     lib.defineCMacro("OPENSSL_NO_QUIC", null);
     //lib.defineCMacro("OPENSSL_CPUID_OBJ", null);
+    lib.defineCMacro("OPENSSL_CPUID_SETUP", null);
+
     if (t.isDarwin()) {
         // CommonCrypto
         lib.linkFramework("CoreServices");
