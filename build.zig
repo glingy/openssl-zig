@@ -44,6 +44,8 @@ fn libcrypto(b: *std.Build, target: std.zig.CrossTarget, optimize: std.builtin.O
     lib.defineCMacro("OPENSSL_NO_QUIC", null);
     lib.defineCMacro("OPENSSL_NO_THREAD_POOL", null);
     lib.defineCMacro("OPENSSL_NO_STDIO", null);
+    lib.defineCMacro("OPENSSL_CPUID_SETUP", null);
+
     if (t.isMinGW())
         lib.defineCMacro("NOCRYPT", "1");
     if (t.isDarwin())
