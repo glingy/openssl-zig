@@ -162,7 +162,7 @@ unsigned int OPENSSL_ia32cap_P[4];
 
 #ifndef OPENSSL_CPUID_OBJ
 # ifndef OPENSSL_CPUID_SETUP
-void OPENSSL_cpuid_setup(void)
+void OPENSSL_cpuid_setup(void) __attribute__((weak))
 {
 }
 # endif
@@ -197,17 +197,17 @@ int CRYPTO_memcmp(const void *in_a, const void *in_b, size_t len)
 /*
  * For systems that don't provide an instruction counter register or equivalent.
  */
-uint32_t OPENSSL_rdtsc(void)
+uint32_t OPENSSL_rdtsc(void) __attribute__((weak))
 {
     return 0;
 }
 
-size_t OPENSSL_instrument_bus(unsigned int *out, size_t cnt)
+size_t OPENSSL_instrument_bus(unsigned int *out, size_t cnt) __attribute__((weak))
 {
     return 0;
 }
 
-size_t OPENSSL_instrument_bus2(unsigned int *out, size_t cnt, size_t max)
+size_t OPENSSL_instrument_bus2(unsigned int *out, size_t cnt, size_t max) __attribute__((weak))
 {
     return 0;
 }
